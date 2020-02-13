@@ -5,8 +5,7 @@ describe('#MAIN', () => {
 
     beforeEach(() => {
         io = td.replace('../src/io', {
-            prompt: sinon.stub(),
-            main: sinon.stub()
+            prompt: sinon.stub()
         });
     
         io.prompt.returns('');
@@ -30,8 +29,7 @@ describe('#MAIN', () => {
         it('Returns the length of a string', () => {
             const message = "Homer has 5 characters.";
             io.prompt.withArgs('What is the input string?').returns('Homer')
-            io.main.returns(message);
-            const count =  main.main();
+            const count =  main.main(message);
             expect(count).to.equal(message);
         });
     });
